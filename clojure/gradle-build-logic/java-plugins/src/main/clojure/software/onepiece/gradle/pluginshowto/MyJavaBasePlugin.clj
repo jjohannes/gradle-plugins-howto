@@ -15,5 +15,8 @@
   (do
     (.apply (.getPlugins project) JavaPlugin)
     (.apply (.getPlugins project) SpotlessPlugin)
+
+    ; Configure Java compilation
+    (.set (.getLanguageVersion (.getToolchain (.getByType (.getExtensions project) JavaPluginExtension))) (JavaLanguageVersion/of 17))
   )
 )

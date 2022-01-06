@@ -12,5 +12,9 @@ abstract class MyJavaBasePlugin extends Plugin[Project] {
     override def apply(project: Project): Unit = {
         project.getPlugins.apply(classOf[JavaPlugin])
         project.getPlugins.apply(classOf[SpotlessPlugin])
+
+        // Configure Java compilation
+        def java = project.getExtensions.getByType(classOf[JavaPluginExtension])
+        java.getToolchain.getLanguageVersion.set(JavaLanguageVersion.of(17))
     }
 }

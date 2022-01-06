@@ -20,5 +20,9 @@ abstract public class MyJavaBasePlugin implements Plugin<Project> {
     public void apply(Project project) {
         project.getPlugins().apply(JavaPlugin.class);
         project.getPlugins().apply(SpotlessPlugin.class);
+
+        // Configure Java compilation
+        JavaPluginExtension java = project.getExtensions().getByType(JavaPluginExtension.class);
+        java.getToolchain().getLanguageVersion().set(JavaLanguageVersion.of(17));
     }
 }

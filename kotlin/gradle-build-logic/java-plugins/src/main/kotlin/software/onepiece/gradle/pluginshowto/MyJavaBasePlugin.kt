@@ -15,5 +15,9 @@ abstract class MyJavaBasePlugin : Plugin<Project> {
     override fun apply(project: Project): Unit = with(project) {
         plugins.apply(JavaPlugin::class.java)
         plugins.apply(SpotlessPlugin::class.java)
+
+        // Configure Java compilation
+        val java = extensions.getByType(JavaPluginExtension::class.java)
+        java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
