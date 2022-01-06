@@ -24,5 +24,12 @@ abstract public class MyJavaBasePlugin implements Plugin<Project> {
         // Configure Java compilation
         JavaPluginExtension java = project.getExtensions().getByType(JavaPluginExtension.class);
         java.getToolchain().getLanguageVersion().set(JavaLanguageVersion.of(17));
+
+        // Configure JUnit5 as test framework
+        project.getTasks().named("test", Test.class, test -> {
+            test.useJUnitPlatform();
+            test.getTestLogging().setShowStackTraces(true);
+        });
+        project.getDependencies().add(TEST_IMPLEMENTATION_CONFIGURATION_NAME, "org.junit.jupiter:junit-jupiter:5.7.2");
     }
 }

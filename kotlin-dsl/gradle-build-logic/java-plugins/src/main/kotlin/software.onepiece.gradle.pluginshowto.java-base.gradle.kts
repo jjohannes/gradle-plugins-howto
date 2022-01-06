@@ -7,3 +7,13 @@ plugins {
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 }
+
+// Configure JUnit5 as test framework
+tasks.test {
+    useJUnitPlatform()
+    testLogging.showStandardStreams = true
+}
+dependencies {
+    testImplementation("org.junit.jupiter:junit-jupiter:5.7.2")
+}
+

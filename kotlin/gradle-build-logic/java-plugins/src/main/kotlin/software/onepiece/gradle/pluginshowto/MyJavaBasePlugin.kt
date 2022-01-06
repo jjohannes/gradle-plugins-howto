@@ -19,5 +19,12 @@ abstract class MyJavaBasePlugin : Plugin<Project> {
         // Configure Java compilation
         val java = extensions.getByType(JavaPluginExtension::class.java)
         java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+
+        // Configure JUnit5 as test framework
+        tasks.named("test", Test::class.java) {
+            it.useJUnitPlatform()
+            it.testLogging.showStackTraces = true
+        }
+        dependencies.add(TEST_IMPLEMENTATION_CONFIGURATION_NAME, "org.junit.jupiter:junit-jupiter:5.7.2")
     }
 }

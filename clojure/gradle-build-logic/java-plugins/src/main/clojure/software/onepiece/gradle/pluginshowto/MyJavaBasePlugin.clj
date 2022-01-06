@@ -18,5 +18,12 @@
 
     ; Configure Java compilation
     (.set (.getLanguageVersion (.getToolchain (.getByType (.getExtensions project) JavaPluginExtension))) (JavaLanguageVersion/of 17))
+
+    ; Configure JUnit5 as test framework
+    (.named (.getTasks project) "test" (reify Action (execute [this test] (do
+      (.useJUnitPlatform test)
+      (.showStackTraces (.getTestLogging test) true)
+    ))))
+    (.add (.getDependencies project) "implementation" "org.junit.jupiter:junit-jupiter:5.7.2")
   )
 )

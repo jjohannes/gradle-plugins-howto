@@ -16,5 +16,12 @@ abstract class MyJavaBasePlugin extends Plugin[Project] {
         // Configure Java compilation
         def java = project.getExtensions.getByType(classOf[JavaPluginExtension])
         java.getToolchain.getLanguageVersion.set(JavaLanguageVersion.of(17))
+
+        // Configure JUnit5 as test framework
+        project.getTasks.named("test", classOf[Test], (test: Test) => {
+            test.useJUnitPlatform()
+            test.getTestLogging.setShowStandardStreams(true)
+        } : Unit)
+        project.getDependencies.add(TEST_IMPLEMENTATION_CONFIGURATION_NAME, "org.junit.jupiter:junit-jupiter:5.7.2")
     }
 }
