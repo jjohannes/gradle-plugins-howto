@@ -13,5 +13,7 @@
 
 (defn -apply [this ^Project project]
   (do
+    (.apply (.getPlugins project) JavaPlugin)
+    (.apply (.getPlugins project) SpotlessPlugin)
   )
 )

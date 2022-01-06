@@ -11,6 +11,8 @@
 
 (defn -apply [this ^Project project]
   (do
+    (.apply (.getPlugins project) "software.onepiece.gradle.pluginshowto.java-base")
+    (.apply (.getPlugins project) JavaLibraryPlugin)
   )
 )
 

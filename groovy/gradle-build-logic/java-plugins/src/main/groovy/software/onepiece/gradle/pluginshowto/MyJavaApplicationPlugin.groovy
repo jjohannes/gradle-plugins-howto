@@ -12,5 +12,7 @@ abstract class MyJavaApplicationPlugin implements Plugin<Project> {
 
     @Override
     void apply(Project project) {
+        project.plugins.apply(MyJavaBasePlugin)
+        project.plugins.apply(ApplicationPlugin)
     }
 }

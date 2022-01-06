@@ -18,5 +18,7 @@ abstract public class MyJavaBasePlugin implements Plugin<Project> {
 
     @Override
     public void apply(Project project) {
+        project.getPlugins().apply(JavaPlugin.class);
+        project.getPlugins().apply(SpotlessPlugin.class);
     }
 }

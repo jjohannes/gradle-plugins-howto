@@ -10,5 +10,7 @@ abstract public class MyJavaLibraryPlugin implements Plugin<Project> {
 
     @Override
     public void apply(Project project) {
+        project.getPlugins().apply(MyJavaBasePlugin.class);
+        project.getPlugins().apply(JavaLibraryPlugin.class);
     }
 }

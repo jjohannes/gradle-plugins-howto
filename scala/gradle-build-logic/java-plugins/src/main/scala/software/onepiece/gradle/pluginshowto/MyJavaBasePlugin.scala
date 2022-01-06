@@ -10,5 +10,7 @@ import org.gradle.jvm.toolchain.JavaLanguageVersion
 abstract class MyJavaBasePlugin extends Plugin[Project] {
 
     override def apply(project: Project): Unit = {
+        project.getPlugins.apply(classOf[JavaPlugin])
+        project.getPlugins.apply(classOf[SpotlessPlugin])
     }
 }
