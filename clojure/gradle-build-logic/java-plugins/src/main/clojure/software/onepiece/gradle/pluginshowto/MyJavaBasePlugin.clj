@@ -25,5 +25,12 @@
       (.showStackTraces (.getTestLogging test) true)
     ))))
     (.add (.getDependencies project) "implementation" "org.junit.jupiter:junit-jupiter:5.7.2")
+
+    ; Configure a community plugin - example Spotless
+    (.format (.getByType (.getExtensions project) SpotlessExtension) "buildFiles" (reify Action (execute [this format] (do
+      (.target format (into-array Object ["build.gradle.kts"]))
+      (.trimTrailingWhitespace format)
+      (.endWithNewline format)
+    ))))
   )
 )

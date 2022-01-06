@@ -23,5 +23,13 @@ abstract class MyJavaBasePlugin extends Plugin[Project] {
             test.getTestLogging.setShowStandardStreams(true)
         } : Unit)
         project.getDependencies.add(TEST_IMPLEMENTATION_CONFIGURATION_NAME, "org.junit.jupiter:junit-jupiter:5.7.2")
+
+        // Configure a community plugin - example Spotless
+        def spotless = project.getExtensions.getByType(classOf[SpotlessExtension])
+        spotless.format("buildFiles", (format: FormatExtension) => {
+            format.target("build.gradle.kts")
+            format.trimTrailingWhitespace()
+            format.endWithNewline()
+        })
     }
 }

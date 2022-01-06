@@ -26,5 +26,13 @@ abstract class MyJavaBasePlugin : Plugin<Project> {
             it.testLogging.showStackTraces = true
         }
         dependencies.add(TEST_IMPLEMENTATION_CONFIGURATION_NAME, "org.junit.jupiter:junit-jupiter:5.7.2")
+
+        // Configure a community plugin - example Spotless
+        val spotless = extensions.getByType(SpotlessExtension::class.java)
+        spotless.format("buildFiles") {
+            it.target("build.gradle.kts")
+            it.trimTrailingWhitespace()
+            it.endWithNewline()
+        }
     }
 }

@@ -31,5 +31,13 @@ abstract public class MyJavaBasePlugin implements Plugin<Project> {
             test.getTestLogging().setShowStackTraces(true);
         });
         project.getDependencies().add(TEST_IMPLEMENTATION_CONFIGURATION_NAME, "org.junit.jupiter:junit-jupiter:5.7.2");
+
+        // Configure a community plugin - example Spotless
+        SpotlessExtension spotless = project.getExtensions().getByType(SpotlessExtension.class);
+        spotless.format("buildFiles", format -> {
+            format.target("build.gradle.kts");
+            format.trimTrailingWhitespace();
+            format.endWithNewline();
+        });
     }
 }

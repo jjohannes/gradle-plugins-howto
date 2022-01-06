@@ -17,3 +17,11 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:5.7.2")
 }
 
+// Configure a community plugin - example Spotless
+spotless {
+    format("buildFiles") {
+        target("build.gradle.kts")
+        trimTrailingWhitespace()
+        endWithNewline()
+    }
+}
