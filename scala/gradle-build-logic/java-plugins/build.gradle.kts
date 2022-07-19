@@ -5,7 +5,7 @@ plugins {
     id("com.gradle.plugin-publish") version "1.0.0" // if you do not publish to the Gradle Plugin Portal, you may remove this (but it also does not hurt)
 }
 
-dependencies { implementation("org.scala-lang:scala-library:2.13.6") }
+dependencies { implementation("org.scala-lang:scala-library:2.13.8") }
 
 group = "software.onepiece.gradle.pluginshowto"
 
