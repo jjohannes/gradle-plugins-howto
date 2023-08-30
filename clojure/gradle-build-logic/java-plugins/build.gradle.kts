@@ -1,13 +1,13 @@
 plugins {
     id("java-gradle-plugin")
-    id("dev.clojurephant.clojure") version "0.6.0"
+    id("dev.clojurephant.clojure") version "0.8.0-beta.2"
     id("maven-publish") // if you never publish the plugin, you may remove this (but it also does not hurt)
-    id("com.gradle.plugin-publish") version "1.1.0" // if you do not publish to the Gradle Plugin Portal, you may remove this (but it also does not hurt)
+    id("com.gradle.plugin-publish") version "1.2.1" // if you do not publish to the Gradle Plugin Portal, you may remove this (but it also does not hurt)
 }
 
 // clojurephant plugin specifics
 clojure.builds.named("main") { aotAll() }
-dependencies { implementation("org.clojure:clojure:1.10.3") }
+dependencies { implementation("org.clojure:clojure:1.11.1") }
 
 group = "software.onepiece.gradle.pluginshowto"
 
@@ -35,7 +35,7 @@ gradlePlugin {
 }
 
 dependencies {
-    implementation("com.diffplug.spotless:spotless-plugin-gradle:6.1.0") {
+    implementation("com.diffplug.spotless:spotless-plugin-gradle:6.21.0") {
         because("Provides the 'com.diffplug.spotless' formatting plugin")
     }
 }

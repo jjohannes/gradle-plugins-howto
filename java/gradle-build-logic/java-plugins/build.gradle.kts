@@ -1,7 +1,7 @@
 plugins {
     id("java-gradle-plugin")
     id("maven-publish") // if you never publish the plugin, you may remove this (but it also does not hurt)
-    id("com.gradle.plugin-publish") version "1.1.0" // if you do not publish to the Gradle Plugin Portal, you may remove this (but it also does not hurt)
+    id("com.gradle.plugin-publish") version "1.2.1" // if you do not publish to the Gradle Plugin Portal, you may remove this (but it also does not hurt)
 }
 
 group = "software.onepiece.gradle.pluginshowto"
@@ -30,7 +30,7 @@ gradlePlugin {
 }
 
 dependencies {
-    implementation("com.diffplug.spotless:spotless-plugin-gradle:6.1.0") {
+    implementation("com.diffplug.spotless:spotless-plugin-gradle:6.21.0") {
         because("Provides the 'com.diffplug.spotless' formatting plugin")
     }
 }

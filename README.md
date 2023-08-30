@@ -41,7 +41,7 @@ The term **community plugin** (also called **external plugin** or **published pl
 To make such a plugin available so that you can use it similarly to a *core plugin*, you need to declare the repository that provides the plugin -
 for example: [repositories.gradlePluginPortal()](https://github.com/jjohannes/gradle-plugins-howto/blob/main/kotlin-dsl/gradle-build-logic/settings.gradle.kts#L2).  
 And you need to define a dependency to the plugin - for example:  
-[implementation("com.diffplug.spotless:spotless-plugin-gradle:6.1.0")](https://github.com/jjohannes/gradle-plugins-howto/blob/main/kotlin-dsl/gradle-build-logic/java-plugins/build.gradle.kts#L12-L14).  
+[implementation("com.diffplug.spotless:spotless-plugin-gradle:6.21.0")](https://github.com/jjohannes/gradle-plugins-howto/blob/main/kotlin-dsl/gradle-build-logic/java-plugins/build.gradle.kts#L12-L14).  
 
 **What is a 'Local Plugin'?**
 
