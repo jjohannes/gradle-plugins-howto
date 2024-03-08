@@ -137,6 +137,11 @@ It only shows examples of the most prominent things (Extensions, Task Configurat
 - My [Gradle Demos repository](https://github.com/jjohannes/gradle-demos) has examples for doing specific things in Gradle (also mostly uses Kotlin DSL)
 - If you struggle with how to do a certain thing in one of the approach, please ask by [opening an issue](https://github.com/jjohannes/gradle-plugins-howto/issues/new)
 
+### Q&A
+
+- [When to use another composite build or another project?](https://github.com/jjohannes/gradle-plugins-howto/issues/1)
+- [Prefer to use statically compiled languages for plugins?](https://github.com/jjohannes/gradle-plugins-howto/issues/2)
+
 ## Which Option should I choose?
 
 Here are a few things to consider.
