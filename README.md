@@ -141,6 +141,7 @@ It only shows examples of the most prominent things (Extensions, Task Configurat
 
 - [When to use another composite build or another project?](https://github.com/jjohannes/gradle-plugins-howto/issues/1)
 - [Prefer to use statically compiled languages for plugins?](https://github.com/jjohannes/gradle-plugins-howto/issues/2)
+- [How to create an example project and write tests for it?](https://github.com/jjohannes/gradle-plugins-howto/issues/4)
 
 ## Which Option should I choose?
 
