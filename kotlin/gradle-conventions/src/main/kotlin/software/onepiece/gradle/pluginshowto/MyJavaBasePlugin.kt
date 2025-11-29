@@ -25,7 +25,7 @@ abstract class MyJavaBasePlugin : Plugin<Project> {
             it.useJUnitPlatform()
             it.testLogging.showStandardStreams = true
         }
-        dependencies.add(TEST_IMPLEMENTATION_CONFIGURATION_NAME, "org.junit.jupiter:junit-jupiter:5.7.2")
+        dependencies.add(TEST_IMPLEMENTATION_CONFIGURATION_NAME, "org.junit.jupiter:junit-jupiter:6.0.1")
 
         // Configure a community plugin - example Spotless
         val spotless = extensions.getByType(SpotlessExtension::class.java)

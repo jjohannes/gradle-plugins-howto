@@ -24,7 +24,7 @@
       (.useJUnitPlatform test)
       (.setShowStandardStreams (.getTestLogging test) true)
     ))))
-    (.add (.getDependencies project) "implementation" "org.junit.jupiter:junit-jupiter:5.7.2")
+    (.add (.getDependencies project) "implementation" "org.junit.jupiter:junit-jupiter:6.0.1")
 
     ; Configure a community plugin - example Spotless
     (.format (.getByType (.getExtensions project) SpotlessExtension) "buildFiles" (reify Action (execute [this format] (do

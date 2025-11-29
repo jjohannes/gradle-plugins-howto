@@ -30,7 +30,7 @@ abstract public class MyJavaBasePlugin implements Plugin<Project> {
             test.useJUnitPlatform();
             test.getTestLogging().setShowStandardStreams(true);
         });
-        project.getDependencies().add(TEST_IMPLEMENTATION_CONFIGURATION_NAME, "org.junit.jupiter:junit-jupiter:5.7.2");
+        project.getDependencies().add(TEST_IMPLEMENTATION_CONFIGURATION_NAME, "org.junit.jupiter:junit-jupiter:6.0.1");
 
         // Configure a community plugin - example Spotless
         SpotlessExtension spotless = project.getExtensions().getByType(SpotlessExtension.class);
