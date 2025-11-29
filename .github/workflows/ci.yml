@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 21
+      - uses: gradle/actions/setup-gradle@v5
+        with:
+          build-scan-publish: true
+          build-scan-terms-of-use-url: https://gradle.com/terms-of-service
+          build-scan-terms-of-use-agree: yes
+
+      - run: kotlin-dsl/gradlew -p kotlin-dsl build --warning-mode=fail
+      - run: groovy-dsl/gradlew -p groovy-dsl build --warning-mode=fail
+      - run: java/gradlew       -p java       build --warning-mode=fail
+      - run: kotlin/gradlew     -p kotlin     build --warning-mode=fail
+      - run: groovy/gradlew     -p groovy     build --warning-mode=fail
+      - run: scala/gradlew      -p scala      build --warning-mode=fail
+      - run: clojure/gradlew    -p clojure    build --warning-mode=fail
+
+      - run: kotlin-dsl/gradlew -p kotlin-dsl :gradle-conventions:publish --warning-mode=fail
+      - run: groovy-dsl/gradlew -p groovy-dsl :gradle-conventions:publish --warning-mode=fail
+      - run: java/gradlew       -p java       :gradle-conventions:publish --warning-mode=fail
+      - run: kotlin/gradlew     -p kotlin     :gradle-conventions:publish --warning-mode=fail
+      - run: groovy/gradlew     -p groovy     :gradle-conventions:publish --warning-mode=fail
+      - run: scala/gradlew      -p scala      :gradle-conventions:publish --warning-mode=fail
+      - run: clojure/gradlew    -p clojure    :gradle-conventions:publish --warning-mode=fail
