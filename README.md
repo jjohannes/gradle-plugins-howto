@@ -32,25 +32,25 @@ No. You can use Java (or Scala) if you prefer.
 
 **What is a 'Core Plugin'?**
 
-The term **core plugin** refers to a plugin that is part of the Gradle distribution – for example [id("java-library")](https://github.com/jjohannes/gradle-plugins-howto/blob/main/kotlin-dsl/gradle-build-logic/java-plugins/src/main/kotlin/software.onepiece.gradle.pluginshowto.java-library.gradle.kts#L3).
+The term **core plugin** refers to a plugin that is part of the Gradle distribution – for example [id("java-library")](https://github.com/jjohannes/gradle-plugins-howto/blob/main/kotlin-dsl/gradle-conventions/src/main/kotlin/software.onepiece.gradle.pluginshowto.java-library.gradle.kts#L3).
 It is always available.
 
 **What is a 'Community Plugin' (aka 'External Plugin' or 'Published Plugin')?**
 
-The term **community plugin** (also called **external plugin** or **published plugin**) refers to a plugin published to the [Gradle Plugin Portal](https://plugins.gradle.org/) or another repository - for example [id("com.diffplug.spotless")](https://github.com/jjohannes/gradle-plugins-howto/blob/main/kotlin-dsl/gradle-build-logic/java-plugins/src/main/kotlin/software.onepiece.gradle.pluginshowto.java-base.gradle.kts#L3).  
+The term **community plugin** (also called **external plugin** or **published plugin**) refers to a plugin published to the [Gradle Plugin Portal](https://plugins.gradle.org/) or another repository - for example [id("com.diffplug.spotless")](https://github.com/jjohannes/gradle-plugins-howto/blob/main/kotlin-dsl/gradle-conventions/src/main/kotlin/software.onepiece.gradle.pluginshowto.java-base.gradle.kts#L3).  
 To make such a plugin available so that you can use it similarly to a *core plugin*, you need to declare the repository that provides the plugin -
-for example: [repositories.gradlePluginPortal()](https://github.com/jjohannes/gradle-plugins-howto/blob/main/kotlin-dsl/gradle-build-logic/settings.gradle.kts#L2).  
+for example: [repositories.gradlePluginPortal()](https://github.com/jjohannes/gradle-plugins-howto/blob/main/kotlin-dsl/gradle-conventions/settings.gradle.kts#L2).  
 And you need to define a dependency to the plugin - for example:  
-[implementation("com.diffplug.spotless:spotless-plugin-gradle:6.21.0")](https://github.com/jjohannes/gradle-plugins-howto/blob/main/kotlin-dsl/gradle-build-logic/java-plugins/build.gradle.kts#L12-L14).  
+[implementation("com.diffplug.spotless:spotless-plugin-gradle:8.1.0")](https://github.com/jjohannes/gradle-plugins-howto/blob/main/kotlin-dsl/gradle-conventions/build.gradle.kts#L12-L14).  
 
 **What is a 'Local Plugin'?**
 
 A **local plugin** is a plugin **you write yourself** for your own build in a _plugin build_ (aka _build logic_ or _builSrc_ build).
-It is a separate Gradle build that you link to your main build by using the `includeBuild()` statement in the `pluginManagement {}` block of your settings file - for example [includeBuild("gradle-build-logic")](https://github.com/jjohannes/gradle-plugins-howto/blob/main/kotlin-dsl/settings.gradle.kts#L4).
+It is a separate Gradle build that you link to your main build by using the `includeBuild()` statement in the `pluginManagement {}` block of your settings file - for example [includeBuild("gradle-conventions")](https://github.com/jjohannes/gradle-plugins-howto/blob/main/kotlin-dsl/settings.gradle.kts#L4).
 
 **What is a 'Convention Plugin'?**
 
-A **convention plugin** composes existing *core plugins* and *community plugins* and configures them with your own *conventions* - e.g. setting the Java version via [java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))](https://github.com/jjohannes/gradle-plugins-howto/blob/main/kotlin-dsl/gradle-build-logic/java-plugins/src/main/kotlin/software.onepiece.gradle.pluginshowto.java-base.gradle.kts#L7-L9).
+A **convention plugin** composes existing *core plugins* and *community plugins* and configures them with your own *conventions* - e.g. setting the Java version via [java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))](https://github.com/jjohannes/gradle-plugins-howto/blob/main/kotlin-dsl/gradle-conventions/src/main/kotlin/software.onepiece.gradle.pluginshowto.java-base.gradle.kts#L7-L9).
 It is a conceptual term to distinguish plugins that configure existing functionality from plugins that add new functionality (like the Android plugin).
 All plugins are implemented with the same means.
 That is, all implementation approaches presented below can be used for writing *convention plugins* as well as for writing plugins that add functionality (like additional tasks).
@@ -123,8 +123,8 @@ If you open the project you downloaded with IntelliJ IDEA, you can create Java s
 
 To build the project:
 - Run `./gradlew build` to build the Java example project
-- To publish plugins to a custom repository, run `./gradlew :gradle-build-logic:java-plugins:publish`
-- To publish plugins to the plugin portal, run `./gradlew :gradle-build-logic:java-plugins:publishPlugins`
+- To publish plugins to a custom repository, run `./gradlew :gradle-conventions:publish`
+- To publish plugins to the plugin portal, run `./gradlew :gradle-conventions:publishPlugins`
 
 ### Other resources and feedback
 
