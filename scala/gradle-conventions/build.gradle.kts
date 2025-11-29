@@ -2,7 +2,7 @@ plugins {
     id("java-gradle-plugin")
     id("scala")
     id("maven-publish") // if you never publish the plugin, you may remove this (but it also does not hurt)
-    id("com.gradle.plugin-publish") version "1.3.1" // if you do not publish to the Gradle Plugin Portal, you may remove this (but it also does not hurt)
+    id("com.gradle.plugin-publish") version "2.0.0" // if you do not publish to the Gradle Plugin Portal, you may remove this (but it also does not hurt)
 }
 
 dependencies { implementation("org.scala-lang:scala-library:2.13.18") }
