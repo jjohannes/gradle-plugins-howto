@@ -14,7 +14,7 @@ tasks.test {
     testLogging.showStandardStreams = true
 }
 dependencies {
-    testImplementation("org.junit.jupiter:junit-jupiter:6.1.0")
+    testImplementation("org.junit.jupiter:junit-jupiter:6.1.1")
 }
 
 // Configure a community plugin - example Spotless
