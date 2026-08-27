@@ -30,7 +30,7 @@ gradlePlugin {
 }
 
 dependencies {
-    implementation("com.diffplug.spotless:spotless-plugin-gradle:8.10.0") {
+    implementation("com.diffplug.spotless:spotless-plugin-gradle:8.10.1") {
         because("Provides the 'com.diffplug.spotless' formatting plugin")
     }
 }
