@@ -7,7 +7,7 @@ plugins {
 
 // clojurephant plugin specifics
 clojure.builds.named("main") { aotAll() }
-dependencies { implementation("org.clojure:clojure:1.12.5") }
+dependencies { implementation("org.clojure:clojure:1.12.6") }
 
 group = "software.onepiece.gradle.pluginshowto"
 
