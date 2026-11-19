@@ -27,7 +27,7 @@ jobs:
       - run: kotlin/gradlew     -p kotlin     build --warning-mode=fail
       - run: groovy/gradlew     -p groovy     build --warning-mode=fail
       - run: scala/gradlew      -p scala      build --warning-mode=fail
-      - run: clojure/gradlew    -p clojure    build --warning-mode=fail
+      - run: clojure/gradlew    -p clojure    build --warning-mode=all
 
       - run: kotlin-dsl/gradlew -p kotlin-dsl :gradle-conventions:publish --warning-mode=fail
       - run: groovy-dsl/gradlew -p groovy-dsl :gradle-conventions:publish --warning-mode=fail
@@ -35,4 +35,4 @@ jobs:
       - run: kotlin/gradlew     -p kotlin     :gradle-conventions:publish --warning-mode=fail
       - run: groovy/gradlew     -p groovy     :gradle-conventions:publish --warning-mode=fail
       - run: scala/gradlew      -p scala      :gradle-conventions:publish --warning-mode=fail
-      - run: clojure/gradlew    -p clojure    :gradle-conventions:publish --warning-mode=fail
+      - run: clojure/gradlew    -p clojure    :gradle-conventions:publish --warning-mode=all
