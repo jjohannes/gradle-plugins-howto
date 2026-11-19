@@ -6,7 +6,7 @@ This README, together with the examples in this repository, aims at clarifying t
 
 For a quick introduction on the topic, you may also watch this 5min video:
 
-[<img src="https://onepiecesoftware.github.io/img/videos/03.png" width="320">](https://www.youtube.com/watch?v=N95YI-szd78&list=PLWQK2ZdV4Yl2k2OmC_gsjDpdIBTN0qqkE)
+[<img src="https://onepiece.software/img/videos/03.png" width="320">](https://www.youtube.com/watch?v=N95YI-szd78&list=PLWQK2ZdV4Yl2k2OmC_gsjDpdIBTN0qqkE)
 
 Table of contents
 =================
@@ -32,25 +32,25 @@ No. You can use Java (or Scala) if you prefer.
 
 **What is a 'Core Plugin'?**
 
-The term **core plugin** refers to a plugin that is part of the Gradle distribution – for example [id("java-library")](https://github.com/jjohannes/gradle-plugins-howto/blob/main/kotlin-dsl/gradle-conventions/src/main/kotlin/software.onepiece.gradle.pluginshowto.java-library.gradle.kts#L3).
+The term **core plugin** refers to a plugin that is part of the Gradle distribution – for example [id("java-library")](kotlin-dsl/gradle-conventions/src/main/kotlin/software.onepiece.gradle.pluginshowto.java-library.gradle.kts#L3).
 It is always available.
 
 **What is a 'Community Plugin' (aka 'External Plugin' or 'Published Plugin')?**
 
-The term **community plugin** (also called **external plugin** or **published plugin**) refers to a plugin published to the [Gradle Plugin Portal](https://plugins.gradle.org/) or another repository - for example [id("com.diffplug.spotless")](https://github.com/jjohannes/gradle-plugins-howto/blob/main/kotlin-dsl/gradle-conventions/src/main/kotlin/software.onepiece.gradle.pluginshowto.java-base.gradle.kts#L3).  
+The term **community plugin** (also called **external plugin** or **published plugin**) refers to a plugin published to the [Gradle Plugin Portal](https://plugins.gradle.org/) or another repository - for example [id("com.diffplug.spotless")](kotlin-dsl/gradle-conventions/src/main/kotlin/software.onepiece.gradle.pluginshowto.java-base.gradle.kts#L3).  
 To make such a plugin available so that you can use it similarly to a *core plugin*, you need to declare the repository that provides the plugin -
-for example: [repositories.gradlePluginPortal()](https://github.com/jjohannes/gradle-plugins-howto/blob/main/kotlin-dsl/gradle-conventions/settings.gradle.kts#L2).  
+for example: [repositories.gradlePluginPortal()](kotlin-dsl/gradle-conventions/settings.gradle.kts#L2).  
 And you need to define a dependency to the plugin - for example:  
-[implementation("com.diffplug.spotless:spotless-plugin-gradle:8.1.0")](https://github.com/jjohannes/gradle-plugins-howto/blob/main/kotlin-dsl/gradle-conventions/build.gradle.kts#L12-L14).  
+[implementation("com.diffplug.spotless:spotless-plugin-gradle:8.1.0")](kotlin-dsl/gradle-conventions/build.gradle.kts#L12-L14).  
 
 **What is a 'Local Plugin'?**
 
 A **local plugin** is a plugin **you write yourself** for your own build in a _plugin build_ (aka _build logic_ or _builSrc_ build).
-It is a separate Gradle build that you link to your main build by using the `includeBuild()` statement in the `pluginManagement {}` block of your settings file - for example [includeBuild("gradle-conventions")](https://github.com/jjohannes/gradle-plugins-howto/blob/main/kotlin-dsl/settings.gradle.kts#L4).
+It is a separate Gradle build that you link to your main build by using the `includeBuild()` statement in the `pluginManagement {}` block of your settings file - for example [includeBuild("gradle-conventions")](kotlin-dsl/settings.gradle.kts#L4).
 
 **What is a 'Convention Plugin'?**
 
-A **convention plugin** composes existing *core plugins* and *community plugins* and configures them with your own *conventions* - e.g. setting the Java version via [java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))](https://github.com/jjohannes/gradle-plugins-howto/blob/main/kotlin-dsl/gradle-conventions/src/main/kotlin/software.onepiece.gradle.pluginshowto.java-base.gradle.kts#L7-L9).
+A **convention plugin** composes existing *core plugins* and *community plugins* and configures them with your own *conventions* - e.g. setting the Java version via [java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))](kotlin-dsl/gradle-conventions/src/main/kotlin/software.onepiece.gradle.pluginshowto.java-base.gradle.kts#L7-L9).
 It is a conceptual term to distinguish plugins that configure existing functionality from plugins that add new functionality (like the Android plugin).
 All plugins are implemented with the same means.
 That is, all implementation approaches presented below can be used for writing *convention plugins* as well as for writing plugins that add functionality (like additional tasks).
@@ -74,7 +74,7 @@ No. In all cases, all features are accessed through a Java API. You can choose f
 
 **I... have more questions**
 
-Please ask by [opening an issue](https://github.com/jjohannes/gradle-plugins-howto/issues/new).
+Please ask by [opening an issue](https://codeberg.org/jjohannes/gradle-plugins-howto/issues/new).
 
 ## Different Options for Writing Plugins
 
@@ -94,15 +94,15 @@ Technically, (1) and (2) are called _pre-compiled script plugins_ because Gradle
 ### How do I do it?
 
 This repository contains an example in **7 different flavors** using different approaches/languages.
-You can download one of the examples to explore or as a starting point for your own project (via [download-directory.github.io](https://download-directory.github.io/)):
+You can download one of the examples to explore or as a starting point for your own project:
 
-- [Plugins written in Kotlin DSL](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2Fjjohannes%2Fgradle-plugins-howto%2Ftree%2Fmain%2Fkotlin-dsl)
-- [Plugins written in Groovy DSL](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2Fjjohannes%2Fgradle-plugins-howto%2Ftree%2Fmain%2Fgroovy-dsl)
-- [Plugins written in Java      ](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2Fjjohannes%2Fgradle-plugins-howto%2Ftree%2Fmain%2Fjava)
-- [Plugins written in Kotlin    ](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2Fjjohannes%2Fgradle-plugins-howto%2Ftree%2Fmain%2Fkotlin)
-- [Plugins written in Groovy    ](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2Fjjohannes%2Fgradle-plugins-howto%2Ftree%2Fmain%2Fgroovy)
-- [Plugins written in Scala     ](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2Fjjohannes%2Fgradle-plugins-howto%2Ftree%2Fmain%2Fscala)
-- [Plugins written in Clojure   ](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2Fjjohannes%2Fgradle-plugins-howto%2Ftree%2Fmain%2Fclojure)
+- [Plugins written in Kotlin DSL](https://codeberg.org/jjohannes/gradle-plugins-howto/archive/main:kotlin-dsl.zip)
+- [Plugins written in Groovy DSL](https://codeberg.org/jjohannes/gradle-plugins-howto/archive/main:groovy-dsl.zip)
+- [Plugins written in Java      ](https://codeberg.org/jjohannes/gradle-plugins-howto/archive/main:java.zip)
+- [Plugins written in Kotlin    ](https://codeberg.org/jjohannes/gradle-plugins-howto/archive/main:kotlin.zip)
+- [Plugins written in Groovy    ](https://codeberg.org/jjohannes/gradle-plugins-howto/archive/main:groovy.zip)
+- [Plugins written in Scala     ](https://codeberg.org/jjohannes/gradle-plugins-howto/archive/main:scala.zip)
+- [Plugins written in Clojure   ](https://codeberg.org/jjohannes/gradle-plugins-howto/archive/main:clojure.zip)
 
 Here are the typical things you need to do when writing a plugin.
 They are shown here as a list of successive commits in this repository.
@@ -110,13 +110,13 @@ Each commit does the corresponding thing in all **7 approaches**.
 It is **exactly the same thing** in each approach just with different syntax.
 This helps to understand the differences between them.
 
-- [Setting up the plugin project structure (same in all approaches)](https://github.com/jjohannes/gradle-plugins-howto/commit/project-structure)
-- [Register your plugins (the class-based approaches need more boilerplate)](https://github.com/jjohannes/gradle-plugins-howto/commit/register-plugins)
-- [Plugin writing: composing existing plugins](https://github.com/jjohannes/gradle-plugins-howto/commit/compose-plugins)
-- [Plugin writing: configuring core plugins through extensions](https://github.com/jjohannes/gradle-plugins-howto/commit/configure-core-plugin)
-- [Plugin writing: configuring tasks directly and adding dependencies ](https://github.com/jjohannes/gradle-plugins-howto/commit/configure-task)
-- [Plugin writing: configuring community plugins through extensions](https://github.com/jjohannes/gradle-plugins-howto/commit/configure-community-plugin)
-- [(Optional) Publish plugins (same in all approaches)](https://github.com/jjohannes/gradle-plugins-howto/commit/publish-plugins)
+- [Setting up the plugin project structure (same in all approaches)](https://codeberg.org/jjohannes/gradle-plugins-howto/commit/f28ae2c)
+- [Register your plugins (the class-based approaches need more boilerplate)](https://codeberg.org/jjohannes/gradle-plugins-howto/commit/77c8159)
+- [Plugin writing: composing existing plugins](https://codeberg.org/jjohannes/gradle-plugins-howto/commit/db3549e)
+- [Plugin writing: configuring core plugins through extensions](https://codeberg.org/jjohannes/gradle-plugins-howto/commit/31ac5df)
+- [Plugin writing: configuring tasks directly and adding dependencies ](https://codeberg.org/jjohannes/gradle-plugins-howto/commit/a4d53b5)
+- [Plugin writing: configuring community plugins through extensions](https://codeberg.org/jjohannes/gradle-plugins-howto/commit/39baa4d)
+- [(Optional) Publish plugins (same in all approaches)](https://codeberg.org/jjohannes/gradle-plugins-howto/commit/3293cdd)
 
 The example project does not contain any source code, but is ready for Java development.
 If you open the project you downloaded with IntelliJ IDEA, you can create Java source folders and files through the IDE.
@@ -132,16 +132,16 @@ This repository is about explaining the different technical approaches of writin
 It's not so much about how to actually configure specific things in Gradle.
 It only shows examples of the most prominent things (Extensions, Task Configuration, Dependency Declaration).
 
-- Other topics, like writing your own tasks, are covered in my [Understanding Gradle video series](https://github.com/jjohannes/understanding-gradle) - I use Kotlin DSL there for the local plugins
-- My [Idiomatic Gradle repository](https://github.com/jjohannes/idiomatic-gradle) shows how to configure a larger build with local plugins (in Kotlin DSL)
-- My [Gradle Demos repository](https://github.com/jjohannes/gradle-demos) has examples for doing specific things in Gradle (also mostly uses Kotlin DSL)
-- If you struggle with how to do a certain thing in one of the approach, please ask by [opening an issue](https://github.com/jjohannes/gradle-plugins-howto/issues/new)
+- Other topics, like writing your own tasks, are covered in my [Understanding Gradle video series](https://codeberg.org/jjohannes/understanding-gradle) - I use Kotlin DSL there for the local plugins
+- My [Idiomatic Gradle repository](https://codeberg.org/jjohannes/idiomatic-gradle) shows how to configure a larger build with local plugins (in Kotlin DSL)
+- My [Gradle Demos repository](https://codeberg.org/jjohannes/gradle-demos) has examples for doing specific things in Gradle (also mostly uses Kotlin DSL)
+- If you struggle with how to do a certain thing in one of the approach, please ask by [opening an issue](https://codeberg.org/jjohannes/gradle-plugins-howto/issues/new)
 
 ### Q&A
 
-- [When to use another composite build or another project?](https://github.com/jjohannes/gradle-plugins-howto/issues/1)
-- [Prefer to use statically compiled languages for plugins?](https://github.com/jjohannes/gradle-plugins-howto/issues/2)
-- [How to create an example project and write tests for it?](https://github.com/jjohannes/gradle-plugins-howto/issues/4)
+- [When to use another composite build or another project?](https://codeberg.org/jjohannes/gradle-plugins-howto/issues/1)
+- [Prefer to use statically compiled languages for plugins?](https://codeberg.org/johannes/gradle-plugins-howto/issues/2)
+- [How to create an example project and write tests for it?](https://codeberg.org/jjohannes/gradle-plugins-howto/issues/4)
 
 ## Which Option should I choose?
 

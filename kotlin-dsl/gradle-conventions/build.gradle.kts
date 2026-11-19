@@ -10,8 +10,8 @@ group = "software.onepiece.gradle.pluginshowto"
 
 // -- Plugin Portal Metadata (only needed if you publish to Gradle Plugin Portal) - run ':publishPlugins' task
 gradlePlugin {
-    website.set("https://github.com/jjohannes/gradle-plugins-howto")
-    vcsUrl.set("https://github.com/jjohannes/gradle-plugins-howto.git")
+    website.set("https://codeberg.org/jjohannes/gradle-plugins-howto")
+    vcsUrl.set("https://codeberg.org/jjohannes/gradle-plugins-howto.git")
     plugins.all {
         tags.set(listOf("example"))
     }
